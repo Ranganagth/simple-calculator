@@ -20,13 +20,13 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Ranganagth/simple-calculator.git
    ```
 
 2. Navigate into the project directory:
 
    ```bash
-   cd Simple-Calculator
+   cd simple-calculator
    ```
 
 3. Open index.html in your browser.
