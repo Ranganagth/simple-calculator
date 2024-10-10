@@ -1,6 +1,5 @@
-name: Deploy to GitHub Pages
+name: Deploy Static Website
 
-# Trigger the workflow on push to the 'main' branch
 on:
   push:
     branches:
@@ -11,29 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the repository
+    # Step 1: Checkout the repository
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Setup Node.js environment (this is optional if you use a JS build system like npm or yarn)
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    # Install dependencies (only if your project needs a build step)
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./ # If you have package.json
-
-    # Build the project (optional for static sites, if you're using a build tool)
-    - name: Build the project
-      run: npm run build
-      working-directory: ./ # Skip if no build tool is needed
-
-    # Deploy to GitHub Pages
+    # Step 2: Deploy to GitHub Pages (directly deploy static files)
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./ # Directory to deploy (use './docs' if your content is in 'docs')
+        publish_dir: ./ # Adjust if your files are in a specific folder (e.g., 'docs')
